@@ -1,0 +1,22 @@
+root@kube-master-1:~# kubectl get namespace
+NAME              STATUS   AGE
+kube-system       Active   24m
+kube-public       Active   24m
+kube-node-lease   Active   24m
+default           Active   24m
+root@kube-master-1:~# kubectl get pods -A
+NAMESPACE     NAME                                      READY   STATUS      RESTARTS   AGE
+kube-system   local-path-provisioner-6c86858495-6frnp   1/1     Running     0          24m
+kube-system   coredns-6799fbcd5-nzss8                   1/1     Running     0          24m
+kube-system   helm-install-traefik-crd-45frk            0/1     Completed   0          24m
+kube-system   helm-install-traefik-2fwg8                0/1     Completed   1          24m
+kube-system   svclb-traefik-2e668095-vj45p              2/2     Running     0          22m
+kube-system   metrics-server-54fd9b65b-mtjs6            1/1     Running     0          24m
+kube-system   traefik-7d5f6474df-mn97c                  1/1     Running     0          22m
+kube-system   svclb-traefik-2e668095-lkxrb              2/2     Running     0          16m
+kube-system   svclb-traefik-2e668095-jhhq8              2/2     Running     0          6m56s
+@kube-master-1:~# kubectl get nodes -o wide
+NAME            STATUS   ROLES                  AGE   VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE           KERNEL-VERSION       CONTAINER-RUNTIME
+kube-worker-1   Ready    <none>                 10m   v1.29.5+k3s1   10.10.10.81   <none>        Ubuntu 22.04 LTS   5.15.0-25-generic    docker://24.0.7
+kube-worker-2   Ready    <none>                 25s   v1.29.5+k3s1   10.10.10.82   <none>        Ubuntu 22.04 LTS   5.15.0-25-generic    docker://24.0.7
+kube-master-1   Ready    control-plane,master   18m   v1.29.5+k3s1   10.10.10.77   <none>        Ubuntu 22.04 LTS   5.15.0-112-generic   docker://24.0.7
