@@ -33,31 +33,6 @@ Install terlebih dahulu K3s, dengan command berikut;
 ```bash
 @kube-master-1:~# export KUBECONFIG=~.kube/config
 ```
-
-sesuaikan IP server
-```bash
-@kube-master-1:~# cat /.kube/config
-apiVersion: v1
-clusters:
-- cluster:
-    certificate-authority-data: censored
-    server: https://10.10.10.77:6443
-  name: default
-contexts:
-- context:
-    cluster: default
-    user: default
-  name: default
-current-context: default
-kind: Config
-preferences: {}
-users:
-- name: default
-  user:
-    client-certificate-data: censored
-    client-key-data: censored
-```
-
 _catatan : untuk melihat node-token_
 ```bash
 @kube-master-1:~# cat /var/lib/rancher/k3s/server/node-token
