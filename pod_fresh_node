@@ -1,0 +1,22 @@
+root@kube-master-1:~# kubectl get namespace
+NAME              STATUS   AGE
+kube-system       Active   24m
+kube-public       Active   24m
+kube-node-lease   Active   24m
+default           Active   24m
+root@kube-master-1:~# kubectl get pods -A
+NAMESPACE     NAME                                      READY   STATUS      RESTARTS   AGE
+kube-system   local-path-provisioner-6c86858495-6frnp   1/1     Running     0          24m
+kube-system   coredns-6799fbcd5-nzss8                   1/1     Running     0          24m
+kube-system   helm-install-traefik-crd-45frk            0/1     Completed   0          24m
+kube-system   helm-install-traefik-2fwg8                0/1     Completed   1          24m
+kube-system   svclb-traefik-2e668095-vj45p              2/2     Running     0          22m
+kube-system   metrics-server-54fd9b65b-mtjs6            1/1     Running     0          24m
+kube-system   traefik-7d5f6474df-mn97c                  1/1     Running     0          22m
+kube-system   svclb-traefik-2e668095-lkxrb              2/2     Running     0          16m
+kube-system   svclb-traefik-2e668095-jhhq8              2/2     Running     0          6m56s
+root@kube-master-1:~# kubectl get nodes
+NAME            STATUS   ROLES                  AGE    VERSION
+kube-master-1   Ready    control-plane,master   25m    v1.29.5+k3s1
+kube-worker-1   Ready    <none>                 16m    v1.29.5+k3s1
+kube-worker-2   Ready    <none>                 7m2s   v1.29.5+k3s1
