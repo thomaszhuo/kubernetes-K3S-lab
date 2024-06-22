@@ -62,23 +62,19 @@ Untuk gabung ke Cluster Master
 ```bash
 @kube-worker-1:~# curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" K3S_TOKEN="<token cluster master kamu>" sh -s - --server https://10.10.10.77:6443
 ```
-output kube-worker-1 telah bergabung
-
-@kube-master-1:~# kubectl get nodes
-NAME            STATUS   ROLES                  AGE     VERSION
-kube-worker-1   Ready    <none>                 5m32s   v1.29.5+k3s1
-kube-master-1   Ready    control-plane,master   21m     v1.29.5+k3s1
-
 ulangi untuk worker 2
 ```bash
 @kube-worker-2:~# curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="agent" K3S_TOKEN="<token cluster master kamu>" sh -s - --server https://10.10.10.77:6443
 ```
-output kube-worker-2 telah bergabung
+output kube-worker-1 dan kube-worker-2 telah bergabung
+```bash
 @kube-master-1:~# kubectl get nodes
 NAME            STATUS   ROLES                  AGE    VERSION
 kube-worker-1   Ready    <none>                 10m    v1.29.5+k3s1
 kube-master-1   Ready    control-plane,master   26m    v1.29.5+k3s1
 kube-worker-2   Ready    <none>                 107s   v1.29.5+k3s1
+```
+
 ##
 cek status service master
 -> systemctl status k3s.service
