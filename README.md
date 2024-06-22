@@ -8,17 +8,17 @@ K3s adalah sebuah distribusi Kubernetes yang ringan dan mudah dioperasikan, dira
 ##
 Mudah dipasang, menggunakan setengah memori, semuanya dalam satu berkas biner berukuran kurang dari 100 MB.
 
-Bagus untuk:
+Cocok untuk:
 
-Edge
-Homelab
-Internet of Things (IoT)
-Continuous Integration (CI)
-Pengembangan
-Komputer papan tunggal (ARM)
-Lingkungan yang terisolasi dari jaringan
-Embedded K8s
-Situasi di mana keahlian tingkat tinggi dalam K8s clusterology tidak memungkinkan
+- Edge
+- Homelab
+- Internet of Things (IoT)
+- Continuous Integration (CI)
+- Development
+- Single board computers (ARM)
+- Air-gapped environments
+- Embedded K8s
+- Situations where a PhD in K8s clusterology is infeasible
 
 ##
 Kubernetes adalah kata 10 huruf dengan gaya K8s. Jadi sesuatu yang berukuran setengah dari Kubernetes akan menjadi kata 5 huruf dengan gaya K3. Tidak ada bentuk K3 yang panjang dan tidak ada pengucapan resmi.
