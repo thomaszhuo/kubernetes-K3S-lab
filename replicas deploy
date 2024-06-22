@@ -1,0 +1,49 @@
+@kube-master-1:~# kubectl scale deploy nginx --replicas 3
+deployment.apps/nginx scaled
+NAME                     READY   STATUS              RESTARTS        AGE
+nginx-7854ff8877-spwtf   1/1     Running             1 (3h40m ago)   3h45m
+nginx-7854ff8877-7j558   0/1     ContainerCreating   0               15s
+nginx-7854ff8877-lnv6v   0/1     ContainerCreating   0               15s
+nginx-7854ff8877-lnv6v   1/1     Running             0               89s
+nginx-7854ff8877-7j558   1/1     Running             0               2m6s
+
+
+valid node yang telah terbagi replicaset
+NAME                     READY   STATUS    RESTARTS        AGE     IP           NODE            NOMINATED NODE   READINESS GATES
+nginx-7854ff8877-spwtf   1/1     Running   1 (3h46m ago)   3h51m   10.42.0.13   kube-master-1   <none>           <none>
+nginx-7854ff8877-lnv6v   1/1     Running   0               5m57s   10.42.2.5    kube-worker-2   <none>           <none>
+nginx-7854ff8877-7j558   1/1     Running   0               5m57s   10.42.1.4    kube-worker-1   <none>           <none>
+
+cek pada worker 1 (apakah sesuai dengan pod pada master node)
+-> nginx-7854ff8877-7j558
+@kube-worker-1:~# docker ps
+CONTAINER ID   IMAGE                        COMMAND                  CREATED          STATUS          PORTS     NAMES
+9be0eb807daf   nginx                        "/docker-entrypoint.…"   6 minutes ago    Up 6 minutes              k8s_nginx_nginx-7854ff8877-7j558_default_bea44fb2-707b-4601-a695-cd3588b2
+
+cek pada worker 2 (apakah sesuai dengan pod pada master node)
+-> nginx-7854ff8877-lnv6v
+@kube-worker-2:~# docker ps
+CONTAINER ID   IMAGE                        COMMAND                  CREATED          STATUS          PORTS     NAMES
+363442c3e650   nginx                        "/docker-entrypoint.…"   11 minutes ago   Up 11 minutes             k8s_nginx_nginx-7854ff8877-lnv6v_default_1a0f8ccc-40e6-4c4f-af10-c5345d79
+
+cek pada master
+@kube-master-1:~# kubectl get rs
+NAME               DESIRED   CURRENT   READY   AGE
+nginx-7854ff8877   3         3         3       4h30m
+
+@kube-master-1:~# kubectl get all
+NAME                         READY   STATUS    RESTARTS        AGE
+pod/nginx-7854ff8877-spwtf   1/1     Running   1 (3h55m ago)   4h
+pod/nginx-7854ff8877-lnv6v   1/1     Running   0               14m
+pod/nginx-7854ff8877-7j558   1/1     Running   0               14m
+
+NAME                 TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+service/kubernetes   ClusterIP      10.43.0.1      <none>        443/TCP        5h8m
+service/nginx        LoadBalancer   10.43.59.147   10.10.10.77   80:30431/TCP   4h28m
+
+NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/nginx   3/3     3            3           4h31m
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/nginx-7854ff8877   3         3         3       4h31m
+
