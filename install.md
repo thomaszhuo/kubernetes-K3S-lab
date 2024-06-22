@@ -8,7 +8,7 @@ _Lightweight_ Kubernetes menggunakan Container runtime Docker.
 10.10.10.82 kube-worker-2
 
 ##
-
+Install terlebih dahulu K3s, dengan command berikut;
 ```bash
 @kube-master-1:~# curl -sfL https://get.k3s.io | sh -s server --docker
 ```
@@ -63,7 +63,7 @@ _catatan : untuk melihat node-token_
 @kube-master-1:~# cat /var/lib/rancher/k3s/server/node-token
 ```
 
-Untuk gabung ke Cluster Master
+untuk gabung ke cluster master
 ```bash
 @kube-worker-1:~# curl -sfL https://get.k3s.io | K3S_TOKEN="node_token_anda" sh -s - agent --docker --server https://10.10.10.77:6443
 ```
@@ -79,6 +79,7 @@ NAME            STATUS   ROLES                  AGE   VERSION
 kube-worker-1   Ready    <none>                 10m   v1.29.5+k3s1
 kube-worker-2   Ready    <none>                 21s   v1.29.5+k3s1
 kube-master-1   Ready    control-plane,master   18m   v1.29.5+k3s1
+
 @kube-master-1:~# kubectl get nodes -o wide
 NAME            STATUS   ROLES                  AGE   VERSION        INTERNAL-IP   EXTERNAL-IP   OS-IMAGE           KERNEL-VERSION       CONTAINER-RUNTIME
 kube-worker-1   Ready    <none>                 10m   v1.29.5+k3s1   10.10.10.81   <none>        Ubuntu 22.04 LTS   5.15.0-25-generic    docker://24.0.7
