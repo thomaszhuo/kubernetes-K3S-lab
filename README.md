@@ -19,8 +19,8 @@ Komputer papan tunggal (ARM)
 Lingkungan yang terisolasi dari jaringan
 Embedded K8s
 Situasi di mana keahlian tingkat tinggi dalam K8s clusterology tidak memungkinkan
-##
-Ada apa dengan namanya?
-Kami menginginkan instalasi Kubernetes dengan ukuran setengah dari jumlah memori yang digunakan. Kubernetes adalah kata 10 huruf dengan gaya K8s. Jadi sesuatu yang berukuran setengah dari Kubernetes akan menjadi kata 5 huruf dengan gaya K3. Tidak ada bentuk K3 yang panjang dan tidak ada pengucapan resmi.
 
-_source : https://docs.k3s.io/_
+##
+Kubernetes adalah kata 10 huruf dengan gaya K8s. Jadi sesuatu yang berukuran setengah dari Kubernetes akan menjadi kata 5 huruf dengan gaya K3. Tidak ada bentuk K3 yang panjang dan tidak ada pengucapan resmi.
+##
+##
